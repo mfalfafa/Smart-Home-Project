@@ -54,7 +54,7 @@ GPIO.output(source_panel, 1)
 
 print("source PLN")
 GPIO.output(source_pln, 0)
-GPIO.output(source_panel, 1)
+GPIO.output(source_panel, 0)
 
 # Windows
 mainwin=''
@@ -201,13 +201,13 @@ class pilihSumber(QMainWindow, pilih_sumber.Ui_Form):
         if(source=="PLN"):
             # Switch to PLN source
             print("source PLN")
-            GPIO.output(source_pln, 1)
-            GPIO.output(source_panel, 1)
+            GPIO.output(source_pln, 0)
+            GPIO.output(source_panel, 0)
         elif(source=="PANEL"):
             # Switch to Panel Source
             print("source Panel")
-            GPIO.output(source_pln, 0)
-            GPIO.output(source_panel, 0)
+            GPIO.output(source_pln, 1)
+            GPIO.output(source_panel, 1)
         self.close()
 
     def btnstate_pln(self, rb_pln):
