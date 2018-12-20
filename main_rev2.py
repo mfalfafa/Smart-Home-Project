@@ -217,12 +217,12 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
         if (lamp1_toggle==0):
             lamp1_toggle=1
             # Turn on Lamp1
-            lamp1_indicator.setPixmap(QPixmap("home/pi/Smart-Home-Project/light.png"))
+            lamp1_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/light.png"))
             # lamp1_indicator.setPixmap(QPixmap("light.png"))
         elif (lamp1_toggle==1):
             lamp1_toggle=0
             # Turn off Lamp1
-            lamp1_indicator.setPixmap(QPixmap("home/pi/Smart-Home-Project/dark.png"))
+            lamp1_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
             # lamp1_indicator.setPixmap(QPixmap("dark.png"))
 
         # Change lamp resources
@@ -231,7 +231,7 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
         if (lamp2_toggle==0):
             lamp2_toggle=1
             # Turn on Lamp2
-            lamp2_indicator.setPixmap(QPixmap("home/pi/Smart-Home-Project/light.png"))
+            lamp2_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/light.png"))
             # lamp2_indicator.setPixmap(QPixmap("light.png"))
         elif (lamp2_toggle==1):
             lamp2_toggle=0
