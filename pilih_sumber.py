@@ -19,7 +19,7 @@ class Ui_Form(object):
 "font: 75 28pt \"Arial\";")
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(30, 110, 121, 31))
+        self.label_2.setGeometry(QtCore.QRect(30, 110, 171, 31))
         self.label_2.setStyleSheet("color: rgb(255, 255, 255);\n"
 "font: 75 20pt \"Arial\";")
         self.label_2.setObjectName("label_2")
