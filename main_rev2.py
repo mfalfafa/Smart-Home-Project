@@ -83,6 +83,7 @@ val_line23=''
 time_lbl=''
 popup_text=''
 lbl_source=''
+lbl_daya=''
 lamp1_indicator=''
 lamp2_indicator=''
 lamp3_indicator=''
@@ -93,36 +94,39 @@ popupThread=''
 
 ## Establish connection to COM Port
 ## Connection from HMI
-# connected=False
-# locations=['/dev/ttyAMA0']
-# ## COM Port settings
-# for device in locations: 
-#     try:
-#         print "Trying...",device
-#         ## Serial Initialization
-#         ser_to_hmi = serial.Serial(device,      #port
-#                             115200,              #baudrate
-#                             serial.EIGHTBITS,   #bytesize
-#                             serial.PARITY_ODD,  #parity
-#                             serial.STOPBITS_ONE,#stop bit
-#                             0,                  #timeout
-#                             False,              #xonxoff
-#                             False,              #rtscts
-#                             0,                  #write_timeout
-#                             False,              #dsrdtr
-#                             None,               #inter byte timeout
-#                             None                #exclusive
-#                             )
-#         break
-#     except:
-#         print "Failed to connect on ", device
+print ("Connecting...")
+connected=False
+ser_to_hmi='null'
+buff=''
+locations=['/dev/ttyAMA0']
+## COM Port settings
+for device in locations: 
+    try:
+        print "Trying...",device
+        ## Serial Initialization
+        ser_to_hmi = serial.Serial(device,      #port
+                            115200,              #baudrate
+                            serial.EIGHTBITS,   #bytesize
+                            serial.PARITY_ODD,  #parity
+                            serial.STOPBITS_ONE,#stop bit
+                            0,                  #timeout
+                            False,              #xonxoff
+                            False,              #rtscts
+                            0,                  #write_timeout
+                            False,              #dsrdtr
+                            None,               #inter byte timeout
+                            None                #exclusive
+                            )
+        break
+    except:
+        print "Failed to connect on ", device
 
-# ## loop until the device tells us it is ready
-# while not connected:
-#     serin = ser_to_hmi.read()
-#     connected = True
-# print "Connected to ",device
-# connected=False
+## loop until the device tells us it is ready
+while not connected:
+    serin = ser_to_hmi.read()
+    connected = True
+print "Connected to ",device
+connected=False
 
 
 class PopupThread(threading.Thread):
@@ -147,9 +151,21 @@ class ValueThread(threading.Thread):
         getCurrent()
 
 def getCurrent():
+    global ser_to_hmi, buff, lbl_daya
+    print("Get Serial data")
     while 1:
-        print ("hello")
-        time.sleep(1)
+        if(ser_to_hmi!="null"):
+            # Waiting data from HMI
+            if ser_to_hmi.inWaiting():
+                x=ser_to_hmi.read()
+                buff=buff + x
+                print(x)
+                if x == '\r':
+                    # print "data from HMI :"
+                    print buff
+                    lbl_daya.setText(str(buff))
+                    buff=''
+        # time.sleep(1)
 
 def addValue():
     global current_time,time_lbl
@@ -335,7 +351,7 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
 
     def __init__(self):
         global time_lbl, lbl_source, lamp1_indicator, lamp2_indicator, lamp3_indicator
-        global val_line23,ready_setup
+        global val_line23,ready_setup, lbl_daya
         super(self.__class__, self).__init__()
         self.setupUi(self) # gets defined in the UI file
         # val_line23=self.val_line23
@@ -358,6 +374,7 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
 
         self.pb_sources.released.connect(self.pb_sources_release)
         lbl_source=self.lbl_source
+        lbl_daya=self.lbl_daya
         # label
         time_lbl=self.time_lbl
         # Ready
