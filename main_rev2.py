@@ -236,7 +236,7 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
         elif (lamp2_toggle==1):
             lamp2_toggle=0
             # Turn off Lamp2
-            lamp2_indicator.setPixmap(QPixmap("home/pi/Smart-Home-Project/dark.png"))
+            lamp2_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
             # lamp2_indicator.setPixmap(QPixmap("dark.png"))
 
     def pb_lamp3_release(self):
@@ -244,12 +244,12 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
         if (lamp3_toggle==0):
             lamp3_toggle=1
             # Turn on Lamp3
-            lamp3_indicator.setPixmap(QPixmap("home/pi/Smart-Home-Project/light.png"))
+            lamp3_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/light.png"))
             # lamp3_indicator.setPixmap(QPixmap("light.png"))
         elif (lamp3_toggle==1):
             lamp3_toggle=0
             # Turn off Lamp3
-            lamp3_indicator.setPixmap(QPixmap("home/pi/Smart-Home-Project/dark.png"))
+            lamp3_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
             # lamp3_indicator.setPixmap(QPixmap("dark.png"))
 
     def __init__(self):
