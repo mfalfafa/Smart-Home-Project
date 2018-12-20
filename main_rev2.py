@@ -98,7 +98,7 @@ print ("Connecting...")
 connected=False
 ser_to_hmi='null'
 buff=''
-locations=['/dev/ttyAMA0']
+locations=['/dev/ttyS0']
 ## COM Port settings
 for device in locations: 
     try:
@@ -117,6 +117,7 @@ for device in locations:
                             None,               #inter byte timeout
                             None                #exclusive
                             )
+        connected=True
         break
     except:
         print ("Failed to connect on ", device)
