@@ -201,12 +201,12 @@ class pilihSumber(QMainWindow, pilih_sumber.Ui_Form):
         if(source=="PLN"):
             # Switch to PLN source
             print("source PLN")
-            GPIO.output(source_pln, 0)
+            GPIO.output(source_pln, 1)
             GPIO.output(source_panel, 1)
         elif(source=="PANEL"):
             # Switch to Panel Source
             print("source Panel")
-            GPIO.output(source_pln, 1)
+            GPIO.output(source_pln, 0)
             GPIO.output(source_panel, 0)
         self.close()
 
@@ -276,7 +276,7 @@ class Rework(QMainWindow, rework.Ui_Form):
     def __init__(self):
         global line_val,rework_val
         super(self.__class__, self).__init__()
-        self.setupUi(self) # gets defined in the UI file
+        self.setupUi(self) # gets defined in  the UI file
         # Move to the center of window
         qtRectangle = self.frameGeometry()
         centerPoint = QDesktopWidget().availableGeometry().center()
