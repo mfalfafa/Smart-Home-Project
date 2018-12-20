@@ -161,6 +161,7 @@ def getCurrent():
             # Waiting data from HMI
             if ser_to_hmi.inWaiting():
                 x=ser_to_hmi.read()
+                x=x.decode('ascii')
                 buff=buff + x
                 print(x)
                 if x == '\r':
