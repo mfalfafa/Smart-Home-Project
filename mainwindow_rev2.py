@@ -235,7 +235,7 @@ class Ui_MainWindow(object):
         self.lamp3_indicator_2.setGeometry(QtCore.QRect(720, 380, 51, 51))
         self.lamp3_indicator_2.setText("")
         # self.lamp3_indicator_2.setPixmap(QtGui.QPixmap("source.png"))
-        self.lamp1_indicator.setPixmap(QtGui.QPixmap("/home/pi/Smart-Home-Project/source.png"))
+        self.lamp3_indicator_2.setPixmap(QtGui.QPixmap("/home/pi/Smart-Home-Project/source.png"))
         self.lamp3_indicator_2.setScaledContents(True)
         self.lamp3_indicator_2.setObjectName("lamp3_indicator_2")
         MainWindow.setCentralWidget(self.centralWidget)
