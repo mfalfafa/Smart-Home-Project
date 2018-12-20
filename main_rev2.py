@@ -136,9 +136,13 @@ class pilihSumber(QMainWindow, pilih_sumber.Ui_Form):
         if(source=="PLN"):
             # Switch to PLN source
             print("source PLN")
+            GPIO.output(source_pln, 0)
+            GPIO.output(source_panel, 1)
         elif(source=="PANEL"):
             # Switch to Panel Source
             print("source Panel")
+            GPIO.output(source_pln, 1)
+            GPIO.output(source_panel, 0)
         self.close()
 
     def btnstate_pln(self, rb_pln):
@@ -270,20 +274,20 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
             lamp2_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
             # lamp2_indicator.setPixmap(QPixmap("dark.png"))
 
-    def pb_lamp3_release(self):
-        global lamp3_indicator, lamp3_toggle
-        if (lamp3_toggle==0):
-            lamp3_toggle=1
-            # Turn on Lamp3
-            GPIO.output(lamp3_pin, 0)
-            lamp3_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/light.png"))
-            # lamp3_indicator.setPixmap(QPixmap("light.png"))
-        elif (lamp3_toggle==1):
-            lamp3_toggle=0
-            # Turn off Lamp3
-            GPIO.output(lamp3_pin, 1)
-            lamp3_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
-            # lamp3_indicator.setPixmap(QPixmap("dark.png"))
+    # def pb_lamp3_release(self):
+    #     global lamp3_indicator, lamp3_toggle
+    #     if (lamp3_toggle==0):
+    #         lamp3_toggle=1
+    #         # Turn on Lamp3
+    #         GPIO.output(lamp3_pin, 0)
+    #         lamp3_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/light.png"))
+    #         # lamp3_indicator.setPixmap(QPixmap("light.png"))
+    #     elif (lamp3_toggle==1):
+    #         lamp3_toggle=0
+    #         # Turn off Lamp3
+    #         GPIO.output(lamp3_pin, 1)
+    #         lamp3_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
+    #         # lamp3_indicator.setPixmap(QPixmap("dark.png"))
 
     def __init__(self):
         global time_lbl, lbl_source, lamp1_indicator, lamp2_indicator, lamp3_indicator
@@ -298,15 +302,15 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
 
         self.pb_lamp1.released.connect(self.pb_lamp1_release)
         self.pb_lamp2.released.connect(self.pb_lamp2_release)
-        self.pb_lamp3.released.connect(self.pb_lamp3_release)
+        # self.pb_lamp3.released.connect(self.pb_lamp3_release)
 
         # Lamp Indicator
         lamp1_indicator=self.lamp1_indicator
         lamp2_indicator=self.lamp2_indicator
-        lamp3_indicator=self.lamp3_indicator
+        # lamp3_indicator=self.lamp3_indicator
         lamp1_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
         lamp2_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
-        lamp3_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
+        # lamp3_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
 
         self.pb_sources.released.connect(self.pb_sources_release)
         lbl_source=self.lbl_source
