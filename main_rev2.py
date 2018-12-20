@@ -99,23 +99,25 @@ connected=False
 ser_to_hmi='null'
 buff=''
 locations=['/dev/ttyAMA0']
+locations=['serial0']
 ## COM Port settings
 for device in locations: 
     try:
         print ("Trying...",device)
         ## Serial Initialization
         ser_to_hmi = serial.Serial(device,      #port
-                            115200,              #baudrate
-                            serial.EIGHTBITS,   #bytesize
-                            serial.PARITY_ODD,  #parity
-                            serial.STOPBITS_ONE,#stop bit
-                            0,                  #timeout
-                            False,              #xonxoff
-                            False,              #rtscts
-                            0,                  #write_timeout
-                            False,              #dsrdtr
-                            None,               #inter byte timeout
-                            None                #exclusive
+                            115200
+                            # ,              #baudrate
+                            # serial.EIGHTBITS,   #bytesize
+                            # serial.PARITY_ODD,  #parity
+                            # serial.STOPBITS_ONE,#stop bit
+                            # 0,                  #timeout
+                            # False,              #xonxoff
+                            # False,              #rtscts
+                            # 0,                  #write_timeout
+                            # False,              #dsrdtr
+                            # None,               #inter byte timeout
+                            # None                #exclusive
                             )
         connected=True
         break
