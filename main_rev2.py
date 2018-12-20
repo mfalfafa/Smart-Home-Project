@@ -102,7 +102,7 @@ locations=['/dev/ttyAMA0']
 ## COM Port settings
 for device in locations: 
     try:
-        print "Trying...",device
+        print ("Trying...",device)
         ## Serial Initialization
         ser_to_hmi = serial.Serial(device,      #port
                             115200,              #baudrate
@@ -119,13 +119,13 @@ for device in locations:
                             )
         break
     except:
-        print "Failed to connect on ", device
+        print ("Failed to connect on ", device)
 
 ## loop until the device tells us it is ready
 while not connected:
     serin = ser_to_hmi.read()
     connected = True
-print "Connected to ",device
+print ("Connected to ",device)
 connected=False
 
 
