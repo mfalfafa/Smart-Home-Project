@@ -21,13 +21,13 @@ import mainwindow_rev1
 import rework
 import popup
 
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 # Indicator pin initialization
-# indicator_pin=25
-# GPIO.setmode(GPIO.BCM)
-# GPIO.setup(indicator_pin, GPIO.OUT)
-# GPIO.output(indicator_pin, 0)
+indicator_pin=25
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(indicator_pin, GPIO.OUT)
+GPIO.output(indicator_pin, 0)
 
 
 # Windows

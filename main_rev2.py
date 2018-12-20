@@ -23,14 +23,34 @@ import rework
 import popup
 import pilih_sumber
 
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 # Indicator pin initialization
-# indicator_pin=25
-# GPIO.setmode(GPIO.BCM)
-# GPIO.setup(indicator_pin, GPIO.OUT)
-# GPIO.output(indicator_pin, 0)
+lamp1_pin=23
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(lamp1_pin, GPIO.OUT)
+GPIO.output(lamp1_pin, 1)
 
+lamp2_pin=24
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(lamp2_pin, GPIO.OUT)
+GPIO.output(lamp2_pin, 1)
+
+lamp3_pin=25
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(lamp3_pin, GPIO.OUT)
+GPIO.output(lamp3_pin, 1)
+
+# Change Source
+source_pln=8
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(source_pln, GPIO.OUT)
+GPIO.output(source_pln, 1)
+
+source_panel=7
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(source_panel, GPIO.OUT)
+GPIO.output(source_panel, 1)
 
 # Windows
 mainwin=''
@@ -112,6 +132,13 @@ class pilihSumber(QMainWindow, pilih_sumber.Ui_Form):
     def submit_sumber(self):
         global lbl_source, source
         lbl_source.setText(source)
+        # Change Source (PLN or Panel)
+        if(source=="PLN"):
+            # Switch to PLN source
+            print("source PLN")
+        elif(source=="PANEL"):
+            # Switch to Panel Source
+            print("source Panel")
         self.close()
 
     def btnstate_pln(self, rb_pln):
@@ -217,11 +244,13 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
         if (lamp1_toggle==0):
             lamp1_toggle=1
             # Turn on Lamp1
+            GPIO.output(lamp1_pin, 0)
             lamp1_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/light.png"))
             # lamp1_indicator.setPixmap(QPixmap("light.png"))
         elif (lamp1_toggle==1):
             lamp1_toggle=0
             # Turn off Lamp1
+            GPIO.output(lamp1_pin, 1)
             lamp1_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
             # lamp1_indicator.setPixmap(QPixmap("dark.png"))
 
@@ -231,11 +260,13 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
         if (lamp2_toggle==0):
             lamp2_toggle=1
             # Turn on Lamp2
+            GPIO.output(lamp2_pin, 0)
             lamp2_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/light.png"))
             # lamp2_indicator.setPixmap(QPixmap("light.png"))
         elif (lamp2_toggle==1):
             lamp2_toggle=0
             # Turn off Lamp2
+            GPIO.output(lamp2_pin, 1)
             lamp2_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
             # lamp2_indicator.setPixmap(QPixmap("dark.png"))
 
@@ -244,11 +275,13 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
         if (lamp3_toggle==0):
             lamp3_toggle=1
             # Turn on Lamp3
+            GPIO.output(lamp3_pin, 0)
             lamp3_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/light.png"))
             # lamp3_indicator.setPixmap(QPixmap("light.png"))
         elif (lamp3_toggle==1):
             lamp3_toggle=0
             # Turn off Lamp3
+            GPIO.output(lamp3_pin, 1)
             lamp3_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
             # lamp3_indicator.setPixmap(QPixmap("dark.png"))
 
