@@ -164,7 +164,7 @@ def getCurrent():
                 x=x.decode('ascii')
                 buff=buff + x
                 print(x)
-                if x == '\n':
+                if x == '\r':
                     # print "data from HMI :"
                     print (buff)
                     if(ready_setup==1):
