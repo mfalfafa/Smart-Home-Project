@@ -168,7 +168,7 @@ def getCurrent():
                     # print "data from HMI :"
                     print (buff)
                     if(ready_setup==1):
-                        if(lamp2_toggle==0 && lamp1_toggle==0):
+                        if(lamp2_toggle==0 and lamp1_toggle==0):
                             lbl_daya.setText("0")
                         else:
                             lbl_daya.setText(str(buff))
