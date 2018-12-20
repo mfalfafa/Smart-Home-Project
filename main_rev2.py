@@ -98,7 +98,7 @@ print ("Connecting...")
 connected=False
 ser_to_hmi='null'
 buff=''
-locations=['/dev/ttyS0']
+locations=['/dev/ttyAMA0']
 ## COM Port settings
 for device in locations: 
     try:
@@ -122,12 +122,12 @@ for device in locations:
     except:
         print ("Failed to connect on ", device)
 
-## loop until the device tells us it is ready
-while not connected:
-    serin = ser_to_hmi.read()
-    connected = True
-print ("Connected to ",device)
-connected=False
+# ## loop until the device tells us it is ready
+# while not connected:
+#     serin = ser_to_hmi.read()
+#     connected = True
+# print ("Connected to ",device)
+# connected=False
 
 
 class PopupThread(threading.Thread):
