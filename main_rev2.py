@@ -162,7 +162,7 @@ def getCurrent():
                 print(x)
                 if x == '\r':
                     # print "data from HMI :"
-                    print buff
+                    print (buff)
                     lbl_daya.setText(str(buff))
                     buff=''
         # time.sleep(1)
