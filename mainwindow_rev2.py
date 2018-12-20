@@ -251,7 +251,7 @@ class Ui_MainWindow(object):
         self.lbl_daya.setText(_translate("MainWindow", "0"))
         self.time_lbl.setText(_translate("MainWindow", "09:45:55"))
         self.label.setText(_translate("MainWindow", "|"))
-        self.shift_lbl.setText(_translate("MainWindow", "Room 1"))
+        self.shift_lbl.setText(_translate("MainWindow", "Home"))
         self.pb_lamp1.setText(_translate("MainWindow", "Lamp 1"))
         self.pb_lamp2.setText(_translate("MainWindow", "Lamp 2"))
         # self.pb_lamp3.setText(_translate("MainWindow", "Lamp 3"))

@@ -52,6 +52,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(source_panel, GPIO.OUT)
 GPIO.output(source_panel, 1)
 
+print("source PLN")
+GPIO.output(source_pln, 0)
+GPIO.output(source_panel, 1)
+
 # Windows
 mainwin=''
 reworkwin=''

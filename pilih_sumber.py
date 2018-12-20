@@ -72,9 +72,9 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "Pilih Sumber"))
-        self.label_2.setText(_translate("Form", "Room :"))
+        self.label_2.setText(_translate("Form", "Penggunaan :"))
         self.label_3.setText(_translate("Form", "Sumber Listrik :"))
-        self.line_val.setText(_translate("Form", "Room 1"))
+        self.line_val.setText(_translate("Form", "Rumah"))
         self.pb_submit.setText(_translate("Form", "SUBMIT"))
         self.exit_pb.setText(_translate("Form", "x"))
         self.rb_pln.setText(_translate("Form", "PLN"))
