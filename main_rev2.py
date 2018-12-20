@@ -91,6 +91,40 @@ lamp3_indicator=''
 valueThread=''
 popupThread=''
 
+## Establish connection to COM Port
+## Connection from HMI
+# connected=False
+# locations=['/dev/ttyAMA0']
+# ## COM Port settings
+# for device in locations: 
+#     try:
+#         print "Trying...",device
+#         ## Serial Initialization
+#         ser_to_hmi = serial.Serial(device,      #port
+#                             115200,              #baudrate
+#                             serial.EIGHTBITS,   #bytesize
+#                             serial.PARITY_ODD,  #parity
+#                             serial.STOPBITS_ONE,#stop bit
+#                             0,                  #timeout
+#                             False,              #xonxoff
+#                             False,              #rtscts
+#                             0,                  #write_timeout
+#                             False,              #dsrdtr
+#                             None,               #inter byte timeout
+#                             None                #exclusive
+#                             )
+#         break
+#     except:
+#         print "Failed to connect on ", device
+
+# ## loop until the device tells us it is ready
+# while not connected:
+#     serin = ser_to_hmi.read()
+#     connected = True
+# print "Connected to ",device
+# connected=False
+
+
 class PopupThread(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
@@ -109,7 +143,13 @@ class ValueThread(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
     def run(self):
-        addValue()
+        # addValue()
+        getCurrent()
+
+def getCurrent():
+    while 1:
+        print ("hello")
+        time.sleep(1)
 
 def addValue():
     global current_time,time_lbl
