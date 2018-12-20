@@ -247,7 +247,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_9.setText(_translate("MainWindow", "Lamp Switch"))
-        self.label_10.setText(_translate("MainWindow", "Total Daya"))
+        self.label_10.setText(_translate("MainWindow", "Total Daya (Watt)"))
         self.lbl_daya.setText(_translate("MainWindow", "0"))
         self.time_lbl.setText(_translate("MainWindow", "09:45:55"))
         self.label.setText(_translate("MainWindow", "|"))
