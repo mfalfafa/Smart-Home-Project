@@ -154,7 +154,7 @@ class ValueThread(threading.Thread):
         getCurrent()
 
 def getCurrent():
-    global ser_to_hmi, buff, lbl_daya, ready_setup
+    global ser_to_hmi, buff, lbl_daya, ready_setup, lamp1_toggle, lamp2_toggle
     print("Get Serial data")
     while 1:
         if(ser_to_hmi!="null"):
@@ -168,7 +168,10 @@ def getCurrent():
                     # print "data from HMI :"
                     print (buff)
                     if(ready_setup==1):
-                        lbl_daya.setText(str(buff))
+                        if(lamp2_toggle==0 && lamp1_toggle==0):
+                            lbl_daya.setText("0")
+                        else:
+                            lbl_daya.setText(str(buff))
                     buff=''
         # time.sleep(1)
 
