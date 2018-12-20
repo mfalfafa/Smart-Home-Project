@@ -164,7 +164,7 @@ def getCurrent():
                 x=x.decode('ascii')
                 buff=buff + x
                 print(x)
-                if x == '\r':
+                if x == '\n':
                     # print "data from HMI :"
                     print (buff)
                     lbl_daya.setText(str(buff))
