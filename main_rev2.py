@@ -271,6 +271,9 @@ class MainWindow(QMainWindow, mainwindow_rev2.Ui_MainWindow):
         lamp1_indicator=self.lamp1_indicator
         lamp2_indicator=self.lamp2_indicator
         lamp3_indicator=self.lamp3_indicator
+        lamp1_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
+        lamp2_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
+        lamp3_indicator.setPixmap(QPixmap("/home/pi/Smart-Home-Project/dark.png"))
 
         self.pb_sources.released.connect(self.pb_sources_release)
         lbl_source=self.lbl_source
